@@ -11,6 +11,9 @@ namespace SisDogHotelDAL.Entity
         public int IdPagamento { get; set; }
         public decimal ValorTotal { get; set; }
         public string TipoPagamento { get; set; }
+        public int IdCheckout { get; set; }
+        public int IdReserva { get; set; }
+
 
     }
 }
