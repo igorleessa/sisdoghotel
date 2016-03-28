@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Cao.cs" />
     <Compile Include="Entity\Cliente.cs" />
     <Compile Include="Persistence\ClienteDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
