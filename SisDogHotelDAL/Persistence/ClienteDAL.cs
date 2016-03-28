@@ -9,5 +9,6 @@ namespace SisDogHotelDAL.Persistence
 {
     public class ClienteDAL
     {
+        
     }
 }
