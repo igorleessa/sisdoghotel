@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace SisDogHotelDAL.Persistence
 {
-    public class ConexaoDAL
+    public class Conexao
     {
         protected SqlConnection Con;
         protected SqlCommand Cmd;

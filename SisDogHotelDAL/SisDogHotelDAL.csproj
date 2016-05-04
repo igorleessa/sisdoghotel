@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,7 +58,7 @@
     <Compile Include="Entity\Reserva.cs" />
     <Compile Include="Entity\RotinaAlimentacao.cs" />
     <Compile Include="Persistence\ClienteDAL.cs" />
-    <Compile Include="Persistence\ConexaoDAL.cs" />
+    <Compile Include="Persistence\Conexao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
