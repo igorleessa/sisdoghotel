@@ -59,6 +59,7 @@
     <Compile Include="Entity\RotinaAlimentacao.cs" />
     <Compile Include="Persistence\ClienteDAL.cs" />
     <Compile Include="Persistence\Conexao.cs" />
+    <Compile Include="Persistence\FuncionarioDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

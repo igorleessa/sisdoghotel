@@ -16,7 +16,7 @@ namespace SisDogHotelDAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("INSERT INTO Cliente(Nome, Sobrenome, DataNascimento, Telefone, Celular, " +
+                Cmd = new SqlCommand("INSERT INTO cliente(Nome, Sobrenome, DataNascimento, Telefone, Celular, " +
                     "Cep, Rua, NumeroCasa, Complemento, Cidade, Estato, Pais, Cpf, Rg, UsuarioCliente, SenhaCliente)" +
                     "VALUES(@v1, @v2, @v3, @v4, @v5, @v6, @v7, @v8, @v9, @v10, @v11, @v12, @v13, @v14, @v15, @v16)", Con);
 
@@ -57,7 +57,7 @@ namespace SisDogHotelDAL.Persistence
             {
                 OpenConnection();
 
-                Cmd = new SqlCommand("SELECT COUNT(*) FROM Cliente WHERE Cpf = @v1", Con);
+                Cmd = new SqlCommand("SELECT COUNT(*) FROM cliente WHERE Cpf = @v1", Con);
 
                 Cmd.Parameters.AddWithValue("@v1", Cpf);
 
@@ -84,7 +84,7 @@ namespace SisDogHotelDAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("UPDATE Cliente SET Nome = @V1, Sobrenome = @V2, DataNascimento = @V3, Telefone = @V4, " +
+                Cmd = new SqlCommand("UPDATE cliente SET Nome = @V1, Sobrenome = @V2, DataNascimento = @V3, Telefone = @V4, " +
                     "Celular = @V5, Cep = @V6, Rua = @V7, NumeroCasa = @V8, Complemento = @V9, Cidade = @V10, Estato = @11, " +
                     "Pais = @V12, Cpf = @V13, Rg = @V14, UsuarioCliente = @V15, SenhaCliente = @V16 WHERE IdCliente = @v17", Con);
 
