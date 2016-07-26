@@ -57,9 +57,16 @@
     <Compile Include="Entity\Quarto.cs" />
     <Compile Include="Entity\Reserva.cs" />
     <Compile Include="Entity\RotinaAlimentacao.cs" />
+    <Compile Include="Persistence\AnimalDAL.cs" />
+    <Compile Include="Persistence\CheckinDAL.cs" />
+    <Compile Include="Persistence\CheckoutDAL.cs" />
     <Compile Include="Persistence\ClienteDAL.cs" />
     <Compile Include="Persistence\Conexao.cs" />
     <Compile Include="Persistence\FuncionarioDAL.cs" />
+    <Compile Include="Persistence\PagamentoDAL.cs" />
+    <Compile Include="Persistence\QuartoDAL.cs" />
+    <Compile Include="Persistence\ReservaDAL.cs" />
+    <Compile Include="Persistence\RotinaAlimentacaoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

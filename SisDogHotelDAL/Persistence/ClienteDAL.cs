@@ -51,7 +51,7 @@ namespace SisDogHotelDAL.Persistence
         }
 
 
-        public bool HasCliente(int Cpf)
+        public bool HasClienteByCpf(int Cpf)
         {
             try
             {
@@ -111,6 +111,86 @@ namespace SisDogHotelDAL.Persistence
             catch (Exception ex)
             {
                 throw new Exception("Erro ao atualizar Cliente: " + ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+
+
+
+
+        public List<Cliente> BuscarClienteByFiltro(string Nome, string Sobrenome, string LoginCliente)
+        {
+            try
+            {
+                OpenConnection();
+                Cmd = new SqlCommand("SELECT * FROM Cliente WHERE Nome LIKE '%@1%' OR Sobrenome LIKE '%@v2%' OR UsuarioCliente LIKE '%@v3%'");
+
+                Cmd.Parameters.AddWithValue("@v1", Nome);
+                Cmd.Parameters.AddWithValue("@v2", Sobrenome);
+                Cmd.Parameters.AddWithValue("@v3", LoginCliente);
+
+                Dr = Cmd.ExecuteReader();
+
+                List<Cliente> list = new List<Cliente>();
+
+                while (Dr.Read())
+                {
+                    var cliente = new Cliente();
+
+                    cliente.Nome = Convert.ToString(Dr["nome"]);
+                    cliente.Sobrenome = Convert.ToString(Dr["sobrenome"]);
+                    cliente.DataNascimento = Convert.ToDateTime(Dr["datanascimento"]);
+                    cliente.Telefone = Convert.ToString(Dr["telefone"]);
+                    cliente.Celular = Convert.ToString(Dr["celular"]);
+                    cliente.Cep = Convert.ToInt32(Dr["cep"]);
+                    cliente.Rua = Convert.ToString(Dr["rua"]);
+                    cliente.NumeroCasa = Convert.ToString(Dr["numerocasa"]);
+                    cliente.Complemento = Convert.ToString(Dr["complemento"]);
+                    cliente.Cidade = Convert.ToString(Dr["cidade"]);
+                    cliente.Estado = Convert.ToString(Dr["estado"]);
+                    cliente.Pais = Convert.ToString(Dr["pais"]);
+                    cliente.Cpf = Convert.ToInt32(Dr["cpf"]);
+                    cliente.Rg = Convert.ToInt32(Dr["rg"]);
+                    cliente.UsuarioCliente = Convert.ToString(Dr["usuariocliente"]);
+                    cliente.SenhaCliente = Convert.ToString(Dr["senhacliente"]);
+                    list.Add(cliente);
+                }
+                return list;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public bool HasLoginCliente(string Login)
+        {
+            try
+            {
+                OpenConnection();
+
+                Cmd = new SqlCommand("SELECT COUNT(*) FROM cliente WHERE usuariocliente = @v1", Con);
+
+                Cmd.Parameters.AddWithValue("@v1", Login);
+
+                int Qtd = Convert.ToInt32(Cmd.ExecuteScalar());
+
+                if (Qtd > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao obter Login de Cliente: " + ex.Message);
             }
             finally
             {

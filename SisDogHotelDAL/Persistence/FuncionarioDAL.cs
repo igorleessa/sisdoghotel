@@ -15,7 +15,7 @@ namespace SisDogHotelDAL.Persistence
             try
             {
                 OpenConnection();
-                Cmd = new SqlCommand("INSERT INTO Funcionario SET Nome = @v1, LofinFuncionario = @v2, SenhaFuncionario = @v3, NivelAcesso = @v4", Con);
+                Cmd = new SqlCommand("INSERT INTO Funcionario SET Nome = @v1, LoginFuncionario = @v2, SenhaFuncionario = @v3, NivelAcesso = @v4", Con);
 
                 Cmd.Parameters.AddWithValue("@v1", funcionario.Nome);
                 Cmd.Parameters.AddWithValue("@v2", funcionario.LoginFuncionario);
@@ -85,12 +85,72 @@ namespace SisDogHotelDAL.Persistence
         {
             try
             {
+                OpenConnection();
+                Cmd = new SqlCommand("SELECT * FROM funcionario WHERE idfuncionario = @v1", Con);
 
+                Cmd.Parameters.AddWithValue("@v1", IdFuncionario);
+
+                Dr = Cmd.ExecuteReader();
+
+                if (Dr.Read())
+                {
+                    Funcionario func = new Funcionario();
+
+                    func.IdFuncionario = Convert.ToInt32(Dr["idfuncionario"]);
+                    func.Nome = Convert.ToString(Dr["nome"]);
+                    func.LoginFuncionario = Convert.ToString(Dr["loginfuncionario"]);
+                    func.NivelAcesso = Convert.ToString(Dr["nivelacesso"]);
+
+                    return func;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Erro ao obter Funcionario por ID :" + ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+
+        public List<Funcionario> BuscarFuncionarioByNameOrLogin(string Nome, string Login)
+        {
+            try
+            {
+                OpenConnection();
+                Cmd = new SqlCommand("SELECT * FROM funcionario WHERE Nome LIKE '%@v1%' OR Login LIKE '%@v2%'", Con);
+
+                Cmd.Parameters.AddWithValue("@v1", Nome);
+                Cmd.Parameters.AddWithValue("@v2", Login);
+
+                Dr = Cmd.ExecuteReader();
+
+                List<Funcionario> list = new List<Funcionario>();
+
+                while (Dr.Read())
+                {
+                    var func = new Funcionario();
+
+                    func.IdFuncionario = Convert.ToInt32(Dr["IdFuncionario"]);
+                    func.Nome = Convert.ToString(Dr["Nome"]);
+                    list.Add(func);
+                }
+                return list;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                CloseConnection();
             }
         }
 
