@@ -15,5 +15,6 @@ namespace SisDogHotelDAL.Entity
         public int IdFuncionario { get; set; }
         public int IdAnimal { get; set; }
         public int IdAlimentacao { get; set; }
+        public int NumeroRefeicao { get; set; }
     }
 }

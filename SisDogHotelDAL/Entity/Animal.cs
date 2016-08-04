@@ -12,6 +12,8 @@ namespace SisDogHotelDAL.Entity
         public string Nome { get; set; }
         public string Cor { get; set; }
         public string Observacao { get; set; }
+        public decimal Peso { get; set; }
+        public string Raca { get; set; }
         public int IdFuncionario { get; set; }
         public int IdCliente { get; set; }
     }
