@@ -111,6 +111,7 @@ namespace SisDogHotelDAL.Persistence
 
                     list.Add(Rotina);
                 }
+                return list;
             }
             catch (Exception)
             {

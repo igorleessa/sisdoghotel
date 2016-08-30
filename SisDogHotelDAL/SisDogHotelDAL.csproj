@@ -49,11 +49,14 @@
   <ItemGroup>
     <Compile Include="Entity\Alimentacao.cs" />
     <Compile Include="Entity\Animal.cs" />
+    <Compile Include="Entity\Cargo.cs" />
     <Compile Include="Entity\Checkin.cs" />
     <Compile Include="Entity\Checkout.cs" />
     <Compile Include="Entity\Cliente.cs" />
     <Compile Include="Entity\Funcionario.cs" />
     <Compile Include="Entity\Pagamento.cs" />
+    <Compile Include="Entity\Formulario.cs" />
+    <Compile Include="Entity\Permissao.cs" />
     <Compile Include="Entity\Quarto.cs" />
     <Compile Include="Entity\Reserva.cs" />
     <Compile Include="Entity\RotinaAlimentacao.cs" />
@@ -71,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
