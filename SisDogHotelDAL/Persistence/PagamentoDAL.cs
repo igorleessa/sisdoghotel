@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SisDogHotelDAL.Persistence
 {
-    class PagamentoDAL
+    public class PagamentoDAL : Conexao
     {
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="Entity\Reserva.cs" />
     <Compile Include="Entity\RotinaAlimentacao.cs" />
     <Compile Include="Persistence\AnimalDAL.cs" />
+    <Compile Include="Persistence\CargoDAL.cs" />
     <Compile Include="Persistence\CheckinDAL.cs" />
     <Compile Include="Persistence\CheckoutDAL.cs" />
     <Compile Include="Persistence\ClienteDAL.cs" />

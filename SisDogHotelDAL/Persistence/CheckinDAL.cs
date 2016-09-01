@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SisDogHotelDAL.Persistence
 {
-    class CheckinDAL
+    public class CheckinDAL : Conexao
     {
     }
 }
